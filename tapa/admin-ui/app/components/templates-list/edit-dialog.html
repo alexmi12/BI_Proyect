@@ -1,0 +1,144 @@
+<md-dialog aria-label="Mango (Fruit)" id="popupContainer">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <div>
+      	<input type="text" ng-model="editCtrl.current.name" class="tapa-radius-3 no-outline tapa-edit-header-input"></input>
+
+      </div>
+      <span flex></span>
+        <md-button class="md-icon-button" aria-label="More" ng-click="editCtrl.cancel()">
+          <md-icon class="material-icons" ng-bind="'close'"></md-icon>
+        </md-button>
+    </div>
+  </md-toolbar>
+  <md-content style="min-width:700px;max-height:810px;overflow-x: hidden;">
+  	<section>
+  			<md-subheader class="md-primary">Text Tags</md-subheader>
+	  		<div layout="row" layout-align="center center">
+	  			 <div flex="75"  class="text-center md-subhead">
+				    <p>Text tags excelent to change change text values in your template.</p>
+				    <p>In this section, you can edit/remove existing tags as well as add new ones.</p>
+				    <p>These tags should map to <code ng-non-bindable>{{TAG_NAMES}}</code> in your template, so make sure they're in your <strong>index.html</strong> code.</p>
+				 </div>
+	  		</div>
+	  		<md-divider></md-divider>
+	  		<div ng-repeat="tagItem in editCtrl.current.textTags" layout="row" layout-margin>
+	  			<div class="col text-right" flex="50">
+	  				<div layout="row">
+						<span>
+							<a ng-click="editCtrl.removeTag(tagItem)" href="javascript:;" style="text-decoration:none;">
+								—
+								<md-tooltip>Remove this tag</md-tooltip>
+							</a>
+						</span> <div flex><input ng-model="tagItem.tag" type="text" style="width:100%;border:0;font-weight:bold;text-align:right"></input></div>
+					</div>
+	  			</div>
+	  			<div class="col text-left" flex="50">
+	  				<input ng-model="tagItem.value" type="text" style="width:80%;border:0;"></input>
+	  			</div>
+	  		</div>
+	  		<div layout="row" layout-align="center center">
+					<md-button class="md-icon-button" aria-label="More" ng-click="editCtrl.addTag()">
+			          <md-icon class="material-icons" style="color:green;" ng-bind="'add'"></md-icon>
+			          <md-tooltip>
+			          	Add new Text Tag
+			      	  </md-tooltip>
+			        </md-button>
+	  		</div>
+
+  	</section>
+
+
+ 
+  	<section>
+  			<md-subheader class="md-primary">JS/CSS Injection</md-subheader>
+	  		<div layout="row" layout-align="center center">
+	  			 <div flex="75"  class="text-center md-subhead">
+				    <p>
+				    	Choose between these files, the ones you want to inject into your Pentaho 
+				    	User Console under mantle context. 
+				    </p>
+				    <p>
+				    	By injecting css/js files into PUC you can deliver some UI customizations and
+				    	also register an Angular-app you have developed.
+				    </p>
+
+				    <h4 ng-if="editCtrl.isAssetsEmpty()" class="text-center tapa-edit-warn">You have no css/jss files in your <code>assets/</code> folder</h4>
+
+				 </div>
+	  		</div>
+	  		<md-divider></md-divider>
+	  		
+			<md-list ng-if="!editCtrl.isAssetsEmpty()"  ng-cloak>
+				  <md-list-item >
+					    <p class="text-left"> <strong>File</strong></p>
+					    <p class="text-right"><strong> Inject it?</strong></p>
+				  </md-list-item>
+				  <md-list-item ng-repeat="asset in editCtrl.getAssetsList()">
+					    <p> {{ asset.fileName }} </p>
+					    <md-checkbox class="md-secondary" ng-model="asset.enabled"></md-checkbox>
+				  </md-list-item>
+			</md-list>
+
+  	</section>
+
+
+ 
+  	<section>
+  			<md-subheader class="md-primary" id="imguploadprogress">Images Substitution</md-subheader>
+	  		<div layout="row" layout-align="center center">
+	  			 <div flex="75"  class="text-center md-subhead">
+				    <p>
+				    	Choose the image you want to replace. Have in mind
+				    	that the new image needs to have the same file extension. 
+				    	<strong>NOTE:</strong> Once the image is uploaded there's no way back but
+				    	to upload the old one back to its place. CANCEL can't undo it.
+				    </p>
+
+				    <h4 ng-if="editCtrl.isImagesEmpty()" class="text-center tapa-edit-warn">You have no images in your <code>assets/</code> folder</h4>
+
+				 </div>
+	  		</div>
+	  		<md-divider></md-divider>
+	  		
+			<md-list ng-if="!editCtrl.isImagesEmpty()"  ng-cloak>
+				  <md-list-item >
+					    <p class="text-left"> <strong>Image</strong></p>
+					    <p class="text-right"><strong>Action</strong></p>
+				  </md-list-item>
+				  <md-list-item class="md-2-line" ng-repeat="img in editCtrl.getImagesList()" img-dimensions id="{{img.id}}">
+
+					    		<img ng-click="editCtrl.openImage(img.srcUrl)" class="no-outline md-avatar"ng-src="{{img.getSrcUrl()}}" height="50">
+				    		    <div ng-click="editCtrl.openImage(img.srcUrl)" class="no-outline md-list-item-text">
+						          <h3>{{img.url}}</h3>
+						          <p>{{imgWidth}} x {{imgHeight}} pixels</p>
+						        </div>
+
+
+
+					    <md-icon class="material-icons no-outline" ng-click="openFileBrowser()">file_upload</md-icon>
+					    <md-divider></md-divider>
+
+				        <uploader-form class="hidden"></uploader-form>
+
+				  </md-list-item>
+
+			</md-list>
+
+  	</section>
+
+
+  </md-content>
+  <div class="md-actions" layout="row">
+
+    <span flex></span>
+    <md-button ng-click="editCtrl.cancel()" >
+     Cancel
+    </md-button>
+    <md-button ng-click="editCtrl.submit()" style="margin-right:20px;" >
+      Submit
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

@@ -1,0 +1,48 @@
+<section class="container tapa-templates" ng-init="templatesListCtrl.init()">
+    <div class="tapa-waypoint-wrapper">
+        <div class="tapa-waypoint" id="tapa-waypoint" waypoint-config="{'target' :'.tapa-header','addDown' : 'tapa-small-header', 'remUp' : 'tapa-small-header'}"></div>
+    </div>
+
+    <div class="tapa-templates-grid-container">
+        <md-grid-list
+        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
+        md-row-height-gt-md="10:9" md-row-height="1:1"
+        md-gutter="12px" md-gutter-gt-sm="10px" >
+
+            <md-grid-tile ng-repeat="template in templatesListCtrl.templates">
+                <md-card class="tapa-template-card">
+                    <div class="tapa-card-img-wrapper">
+                        <img ng-src="{{templatesListCtrl.getContextualizedPath(template.thumbnailImageUrl,template)}}" class="md-card-image" alt="Washed Out">
+                    </div>
+                    <md-card-content>
+                        <h2 class="md-title">{{template.name}}</h2>
+                    </md-card-content>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button ng-click="templatesListCtrl.preview(template, $event)" class="md-icon-button" aria-label="Preview" >
+                            <md-icon md-svg-icon="assets/img/eye.svg"></md-icon>
+                        </md-button>
+                        <md-button ng-click="templatesListCtrl.download(template, $event)" class="md-icon-button" aria-label="Download" >
+                            <md-icon md-svg-icon="assets/img/download.svg"></md-icon>
+                        </md-button>
+                        <md-button ng-click="templatesListCtrl.edit(template, $event)" class="md-icon-button" aria-label="Edit" >
+                            <md-icon md-svg-icon="assets/img/edit.svg"></md-icon>
+                        </md-button>
+                        <md-button ng-click="templatesListCtrl.activateTemplate(template, $event)" class="md-icon-button tapa-check-template {{ template.active ? 'active-template' : '' }}" aria-label="Enable">
+                            <md-icon md-svg-icon="assets/img/check_black.svg"></md-icon>
+                        </md-button>
+                    </div>
+                </md-card>
+            </md-grid-tile>
+
+        </md-grid-list>
+    </div>
+    <div class="pull-right tapa-margin-top-20 tapa-padding-top-20">
+
+        <md-button ng-click="pCtrl.openNewWindow()">
+            <span>Open in new window</span>
+            <md-icon class="material-icons md-16" ng-bind="'open_in_new'">open_in_new</md-icon>
+        </md-button>
+
+    </div>
+
+</section>

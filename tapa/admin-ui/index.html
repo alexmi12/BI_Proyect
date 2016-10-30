@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="tapa" ng-keydown="keyDownMethod($event)">
+  <head>
+    <title>tapa</title>
+    <meta name="viewport" content="initial-scale = 0.75,maximum-scale = 0.75" />
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.css">
+
+    <link rel="stylesheet" href="assets/css/ngProgress.css">
+    <link rel="stylesheet" href="assets/css/tapa.css">
+  	<!--[if gte IE 9]>
+  	  <style type="text/css">
+  	    .gradient {
+  	       filter: none;
+  	    }
+  	  </style>
+  	<![endif]-->
+
+
+  </head>
+  <body ng-class="bodyClasses" ng-controller="PortalController as pCtrl">
+    <header id="tapa-header" class="tapa-header tapa-header-large drop-shadow-l2">
+      <div class="container">
+
+        <md-button class="pull-left tapa-menu tapa-icon md-icon-button md-primary" ng-click="showMenu('left')" aria-label="Settings">
+          <md-icon md-svg-icon="assets/img/menu.svg"></md-icon>
+        </md-button>
+
+        <div class="container tapa-header-centered tapa-logo ">
+          <div class="no-outline" ng-include="'assets/img/logo.svg'" ng-click="pCtrl.showSplash()"></div>
+        </div>
+
+        <md-button class="pull-right tapa-menu tapa-icon md-icon-button md-primary" ng-click="showMenu('right')" aria-label="Settings">
+          <md-icon md-svg-icon="assets/img/info.svg"></md-icon>
+        </md-button>
+
+        <div class="tapa-header-centered tapa-pill">
+          <md-button class="md-fab no-outline" aria-label="Eat cake" ng-click="pCtrl.uploadTemplate($event)">
+            <md-icon md-svg-src="assets/img/add_black.svg"></md-icon>
+          </md-button>
+        </div>
+
+      </div>
+    </header>
+
+
+
+
+
+    <templates-list></templates-list> 
+    <tapa-footer></tapa-footer>
+    <splash-screen></splash-screen>
+    <side-menu></side-menu>
+    <div ng-class="olClasses" ng-click="closeCallback()" ></div>
+  </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.1/angular-material.min.js"></script>
+
+
+    <script src="assets/js/ngprogress.min.js"></script>
+
+
+    <script src="app/components/home/overlayService.js"></script>
+    <script src="app/components/side-menu/sideMenuDirective.js"></script>
+    <script src="app/components/splash-screen/splashScreenDirective.js"></script>
+    <script src="app/components/splash-screen/splashItemDirective.js"></script>
+    <script src="app/components/side-menu/config-menu/configService.js"></script>
+    <script src="app/components/side-menu/config-menu/configMenuDirective.js"></script>
+    <script src="app/components/side-menu/info-menu/infoMenuDirective.js"></script>
+    <script src="app/components/home/waypointDirective.js"></script>
+    <script src="app/components/home/tapaFooterDirective.js"></script>
+    <script src="app/components/templates-list/templatesListDirective.js"></script>
+    <script src="app/components/templates-list/EditDialogController.js"></script>
+    <script src="app/components/templates-list/templatesService.js"></script>
+    <script src="app/components/templates-list/imgDimensionsDirective.js"></script>
+    <script src="app/components/templates-list/uploaderDirective.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/components/home/UploadTemplateDialogController.js"></script>
+</html>

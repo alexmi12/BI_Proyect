@@ -1,0 +1,34 @@
+{
+    "thumbnailImageUrl": "assets/img/material-screenshot.png",
+    "externalResources": [
+        {
+            "type": "css",
+            "context": "mantle",
+            "url": "assets/css/mantle-context.css"
+        },
+        {
+            "type": "js",
+            "context": "mantle",
+            "url": "assets/js/mantle-context.js"
+        },
+        {
+            "type": "js",
+            "context": "mantle",
+            "url": "assets/js/welcome-redirect.js"
+        }
+    ],
+    "textTags": [
+        {
+            "tag": "STATIC_USERNAME_PLACEHOLDER",
+            "value": "Username"
+        },
+        {
+            "tag": "STATIC_PASSWORD_PLACEHOLDER",
+            "value": "Password"
+        },
+        {
+            "tag": "LOGIN_TEXT",
+            "value": "Login"
+        }
+    ]
+}

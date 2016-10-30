@@ -1,0 +1,65 @@
+{
+    "thumbnailImageUrl": "assets/img/tapa-screenshot.png",
+    "externalResources": [
+        {
+            "type": "js",
+            "context": "mantle",
+            "url": "assets/_bootstrap/js/bootstrap.min.js"
+        },
+        {
+            "type": "js",
+            "context": "mantle",
+            "url": "assets/_bootstrap/js/npm.js"
+        },
+        {
+            "type": "css",
+            "context": "mantle",
+            "url": "assets/css/mantle-context.css"
+        },
+        {
+            "type": "css",
+            "context": "mantle",
+            "url": "assets/css/oxygen.css"
+        },
+        {
+            "type": "js",
+            "context": "mantle",
+            "url": "assets/js/mantle-context.js"
+        },
+        {
+            "type": "js",
+            "context": "mantle",
+            "url": "assets/js/welcome-redirect.js"
+        }
+    ],
+    "textTags": [
+        {
+            "tag": "STATIC_RIGHT_HEADER_TEXT",
+            "value": "Proyecto Inteligencia de Negocios (BI)"
+        },
+        {
+            "tag": "STATIC_LOGIN_TEXT",
+            "value": "Please enter your credentials"
+        },
+        {
+            "tag": "STATIC_USERNAME_PLACEHOLDER",
+            "value": "Username"
+        },
+        {
+            "tag": "STATIC_PASSWORD_PLACEHOLDER",
+            "value": "Password"
+        },
+        {
+            "tag": "STATIC_BASED_TEXT",
+            "value": "Basado en"
+        },
+        {
+            "tag": "STATIC_BROUGHT_BY_TEXT",
+            "value": "Para la Organización"
+        },
+        {
+            "tag": "LOGIN_TEXT",
+            "value": "Login"
+        }
+    ]
+}

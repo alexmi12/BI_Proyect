@@ -1,0 +1,24 @@
+  <div ng-show="splashCtrl.varShowSplash" class="tapa-splash-screen tapa-splash-background gradient tapa-radius-3">
+
+    <div class="clearfix tapa-splash-header">
+    	<span class="md-title text-white">Welcome</span>
+    	<md-button class="pull-right tapa-menu tapa-icon md-icon-button md-primary" ng-click="splashCtrl.disposeSplash()" aria-label="Settings">
+      		<md-icon md-svg-icon="assets/img/close.svg"></md-icon>
+    	</md-button>
+    </div>
+
+    <md-dialog-content class="clearfix tapa-splash-content tapa-padding-top-20">
+		<div class="layout layout-row layout-align-center-center layout-sm layout-sm-column">
+			<div class="tapa-logo-splash" ng-include="'assets/img/logo.svg'"></div>
+		</div>
+
+		<splash-item ng-repeat="item in splashCtrl.splashItems">
+		</splash-item>
+
+    <div style="margin:50px 10%">
+    <p class="text-white"><strong>Uninstall note</strong>: We only change one file in your bi-server instalation, which is <code>PUCLogin.jsp</code>
+      So if you whish to uninstall Tapa, just make sure to disable the plugin using our config menu. When you disable it, your original  <code>PUCLogin.jsp</code> is put where it was and you can delete the plugin folder.</p>
+    </div>
+	</md-dialog-content>
+
+  </div>

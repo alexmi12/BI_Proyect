@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><faces-config xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<application>
+		<resource-bundle>
+			<base-name>org.pivot4j.analytics.i18n.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		<resource-bundle xmlns:faces-config="http://java.sun.com/xml/ns/javaee">
+			<base-name>webapp.resources.pivot4j.i18n.messages</base-name>
+			<var>plugin_msg</var>
+		</resource-bundle>
+
+		<message-bundle>org.pivot4j.analytics.i18n.messages</message-bundle>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>ko</supported-locale>
+			<supported-locale>pt</supported-locale>
+			<supported-locale>pt_BR</supported-locale>
+			<supported-locale>fr</supported-locale>
+			<supported-locale>de</supported-locale>
+			<supported-locale>es</supported-locale>
+			<supported-locale>es_MX</supported-locale>
+			<supported-locale>hi</supported-locale>
+			<supported-locale>nl</supported-locale>
+			<supported-locale>it</supported-locale>
+			<supported-locale>ru</supported-locale>
+		</locale-config>
+	</application>
+
+	<factory>
+		<exception-handler-factory>
+			org.pivot4j.analytics.exception.Pivot4JExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+
+	<lifecycle>
+		<phase-listener>org.pivot4j.analytics.listener.LocaleInitializer</phase-listener>
+	</lifecycle>
+
+	<managed-bean xmlns:faces-config="http://java.sun.com/xml/ns/javaee">
+		<managed-bean-name>dataSourceManager</managed-bean-name>
+		<managed-bean-class>org.pivot4j.pentaho.datasource.PentahoDataSourceManager</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean xmlns:faces-config="http://java.sun.com/xml/ns/javaee">
+		<managed-bean-name>reportRepository</managed-bean-name>
+		<managed-bean-class>org.pivot4j.pentaho.repository.PentahoReportRepository</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean xmlns:faces-config="http://java.sun.com/xml/ns/javaee">
+		<managed-bean-name>reportOpener</managed-bean-name>
+		<managed-bean-class>org.pivot4j.pentaho.ui.PentahoReportOpener</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+		<managed-property>
+			<property-name>settings</property-name>
+			<value>#{settings}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>viewStateHolder</property-name>
+			<value>#{viewStateHolder}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>dataSourceManager</property-name>
+			<value>#{dataSourceManager}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>reportRepository</property-name>
+			<value>#{reportRepository}</value>
+		</managed-property>
+	</managed-bean>
+
+	<component>
+		<component-type>org.primefaces.component.Tree</component-type>
+		<component-class>org.pivot4j.analytics.component.tree.Tree</component-class>
+	</component>
+</faces-config>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="bootstrap">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>{{ TAPA_TITLE }}</title>
+  <meta name="gwt:property" content="locale={{ TAPA_LOCALE }}">
+
+  <script src="{{TAPA_TEMPLATE_ROOT_URL}}/assets/js/jquery-1.11.1.min.js"></script>    
+  <script src="{{TAPA_TEMPLATE_ROOT_URL}}/assets/_bootstrap/js/bootstrap.min.js"></script>
+  <link href="{{TAPA_TEMPLATE_ROOT_URL}}/assets/_bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="{{TAPA_TEMPLATE_ROOT_URL}}/assets/css/oxygen.css" rel="stylesheet" type="text/css">
+  <link href="{{TAPA_TEMPLATE_ROOT_URL}}/assets/css/styles.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+  <script language="javascript">if( {{TAPA_LOGGEDIN}} ) location.href="/"</script>
+  <div id="fullscreen_bg" class="fullscreen_bg"></div>
+  <div class="header">
+    {{ STATIC_RIGHT_HEADER_TEXT }}
+  </div>
+  <div class="container">
+    <div class="form-wrapper">
+      <form class="form-signin" action="j_spring_security_check" method="post">
+        <h3><span class="glyphicon glyphicon-lock"></span> Log in</h3>
+        <hr>
+        <span>{{ STATIC_LOGIN_TEXT }}</span>
+        <br />
+        <input name="j_username" type="text" class="form-control" placeholder="{{ STATIC_USERNAME_PLACEHOLDER }}" required="" autofocus="" />
+        <input name="j_password" type="password" class="form-control" placeholder="{{ STATIC_PASSWORD_PLACEHOLDER }}" required="" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+          {{ LOGIN_TEXT }}
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="footer gradient">
+    <div class="pull-left">
+      {{ STATIC_BASED_TEXT }}
+    </div>
+    <div class="pull-right">
+      {{ STATIC_BROUGHT_BY_TEXT }}
+    </div>
+    <hr>
+    <div class="clearfix"></div>
+    <div class="company-logo pull-left logo-pentaho"></div>
+    <div class="company-logo pull-right logo-oncase"></div>
+  </div>
+</body>
+</html>
